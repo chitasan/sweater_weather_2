@@ -9,8 +9,8 @@ class Forecast
   end
 
   def forecast_weather
-    @latitude ||= location_service.get_longitude
-    @longitude ||= location_service.get_latitude
+    @latitude ||= location_service.get_latitude
+    @longitude ||= location_service.get_longitude
     weather_service.get_weather
   end
 
@@ -21,6 +21,6 @@ class Forecast
   end
 
   def weather_service
-    @weather_service ||= WeatherService.new(latitude, longitude)
-  end 
-end 
+    @weather_service ||= WeatherService.new(@latitude, @longitude)
+  end
+end

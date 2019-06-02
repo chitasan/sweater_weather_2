@@ -8,6 +8,12 @@ class Background
   end
   
   def background_url
-    BackgroundService.new(@city, @state).get_background
+    background_service.get_background
   end
+
+  private
+
+  def background_service
+    @background_service ||= BackgroundService.new(@city, @state)
+  end 
 end

@@ -20,7 +20,7 @@ class LocationService
   
   def get_location_json
     response = google_conn.get
-    JSON.parse(response.body symbolizes_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end 
 
   def google_conn

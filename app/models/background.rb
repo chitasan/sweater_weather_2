@@ -1,10 +1,11 @@
 class Background
-  attr_reader :city, :state
+  attr_reader :city,
+              :state
   
-  def initialize(location)
-    split_location = location.split(',')
-    @city = split_location[0]
-    @state = split_location[1]
+  def initialize(city_state)
+    split_location = city_state.split(',')
+    @city          = split_location[0].capitalize
+    @state         = split_location[1].upcase
   end
   
   def background_url

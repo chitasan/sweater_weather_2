@@ -11,13 +11,13 @@ describe 'LocationService' do
   #   it '.get_longitude' do
   #     service = LocationService.new("Denver", "CO")
  
-  #     expect(service.get_longitude).to eq('39.7392358')
+  #     expect(service.get_longitude).to eq('-104.990251')
   #   end 
 
   #   it '.get_latitude' do
   #     service = LocationService.new("Denver", "CO")
  
-  #     expect(service.get_longitude).to eq('-104.990251')
+  #     expect(service.get_latitude).to eq('39.7392358')
   #   end 
   # end 
 end 

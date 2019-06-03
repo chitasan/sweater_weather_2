@@ -1,6 +1,6 @@
 class LocationService
   def initialize(city, state)
-    @city = city
+    @city  = city
     @state = state
   end
   

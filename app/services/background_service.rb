@@ -1,10 +1,10 @@
 class BackgroundService
   attr_reader :city, :state
   
-  Project_weather_group_id = '1463451@N25'
+  ProjectWeatherGroupID= '1463451@N25'
   
   def initialize(city, state)
-    @city = city
+    @city  = city
     @state = state
   end
   
@@ -18,7 +18,7 @@ class BackgroundService
     @background_image ||= get_background_images[:photo][random_background_generator]
   end
   
-  def get_background_images(group_id = Project_weather_group_id)
+  def get_background_images(group_id = ProjectWeatherGroupID)
     @response ||= flickr_conn.get('/services/rest') do |faraday|
       faraday.params[:method] = 'flickr.groups.pools.getPhotos'
       faraday.params[:group_id] = group_id

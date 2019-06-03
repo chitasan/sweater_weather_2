@@ -1,6 +1,6 @@
 class WeatherService
   def initialize(latitude, longitude)
-    @latitude = latitude
+    @latitude  = latitude
     @longitude = longitude
   end
   

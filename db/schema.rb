@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_005053) do
+ActiveRecord::Schema.define(version: 2019_06_03_043310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 2019_06_03_005053) do
     t.index ["current_weather_id"], name: "index_locations_on_current_weather_id"
     t.index ["daily_weathers_id"], name: "index_locations_on_daily_weathers_id"
     t.index ["hourly_weathers_id"], name: "index_locations_on_hourly_weathers_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "api_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "locations", "current_weathers"

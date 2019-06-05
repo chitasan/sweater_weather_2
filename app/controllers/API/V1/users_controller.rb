@@ -5,16 +5,14 @@ class Api::V1::UsersController < ApplicationController
       user.update(api_key: SecureRandom.uuid)
       render status: 201,
       json: {
-        body: {
         api_key: user.api_key
       }
-    }
     end
   end
 
-   private
+  private
 
   def user_params
     params.permit(:email, :password, :password_confirmation)
   end
- end
+end

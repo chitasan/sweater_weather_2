@@ -9,7 +9,7 @@ class Api::V1::SessionsController < ApplicationController
   private
   
   def authenticate
-    unless user && user.try(:authenticate, params[:password], params[:password_confirmation])
+    unless user && user.try(:authenticate, params[:password])
       render json: {}, status: :unauthorized
     end
   end

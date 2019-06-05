@@ -1,7 +1,7 @@
 require 'rails_helper' 
 
 describe Forecast, type: :model do
-  it 'exists' do
+  it 'exists', :vcr do
     forecast = Forecast.new('denver,co')
 
     expect(forecast).to be_a(Forecast)
@@ -10,7 +10,7 @@ describe Forecast, type: :model do
   end 
 
   describe 'instance methods' do 
-    it '.get_current_weather' do
+    it '.get_current_weather', :vcr do
       forecast = Forecast.new('denver,co')
 
       current_weather = JSON.parse(forecast.get_current_weather.to_json, symbolize_names: true)
@@ -28,7 +28,7 @@ describe Forecast, type: :model do
       expect(current_weather).to have_key(:icon)
     end
 
-    it '.get_weather_days' do
+    it '.get_weather_days', :vcr do
       forecast = Forecast.new('denver,co')
       
       weather_days = JSON.parse(forecast.get_weather_days.to_json, symbolize_names: true)
@@ -43,7 +43,7 @@ describe Forecast, type: :model do
       expect(weather_days[0]).to have_key(:temp_low)
     end 
 
-    it '.get_weather_hours' do
+    it '.get_weather_hours', :vcr do
       forecast = Forecast.new('denver,co')
       
       weather_hours = JSON.parse(forecast.get_weather_hours.to_json, symbolize_names: true)

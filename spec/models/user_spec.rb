@@ -7,6 +7,10 @@ describe User, type: :model do
     it { should validate_presence_of :password }
   end
 
+  describe 'relationships' do
+    it { should have_many :favorites }
+  end 
+
   it 'creates api_key when user is created' do
     user = User.create(email: 'user@meow.com', password: 'password')
     

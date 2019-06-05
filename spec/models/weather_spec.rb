@@ -10,19 +10,19 @@ describe Weather, type: :model do
   end
 
   describe 'instance methods' do
-    it '.weather_days' do
+    it '.weather_days', :vcr do
       weather = Weather.new("39.7392358", "-104.990251")
       
       expect(weather.weather_days(5)).to be_a(Array)
     end
 
-    it '.weather_hours' do
+    it '.weather_hours', :vcr do
       weather = Weather.new("39.7392358", "-104.990251")
       
       expect(weather.weather_hours(8)).to be_a(Array)
     end
 
-    it '.current_weather' do
+    it '.current_weather', :vcr do
       weather = Weather.new("39.7392358", "-104.990251")
       
       expect(weather.current_weather).to be_a(Hash)

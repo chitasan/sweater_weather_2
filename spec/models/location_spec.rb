@@ -12,5 +12,6 @@ describe Location, type: :model do
     it { should belong_to(:current_weather) }
     it { should belong_to(:hourly_weathers) }
     it { should belong_to(:daily_weathers) }
+    it { should have_many(:favorites) }
   end
 end

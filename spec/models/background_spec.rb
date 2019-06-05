@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Background, type: :model do
-  describe 'instance methods' do
+  describe 'instance methods', :vcr do
     it '.background_url' do
       background = Background.new('denver,co')
 

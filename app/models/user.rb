@@ -4,11 +4,13 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_create :set_api_key
+  has_many :favorites 
+
+  before_create :get_api_key
   
   private
   
-  def set_api_key
+  def get_api_key
     self.api_key = SecureRandom.hex(14)
   end
 end 

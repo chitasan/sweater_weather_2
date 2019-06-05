@@ -7,4 +7,5 @@ class Location < ApplicationRecord
   belongs_to :current_weather
   belongs_to :hourly_weathers
   belongs_to :daily_weathers
+  has_many :favorites
 end

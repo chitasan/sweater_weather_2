@@ -27,12 +27,12 @@ require 'rails_helper'
                                   password_confirmation: password
                                 }
     expect(response.status).to eq(201)
-    result = JSON.parse(response.body, symbolize_names: true)
+    expected = JSON.parse(response.body, symbolize_names: true)
 
-    expect(result[:body]).to have_key(:api_key)
+    expect(expected).to have_key(:api_key)
 
     user = User.last
 
-    expect(user.api_key).to eq(result[:body][:api_key])
+    expect(user.api_key).to eq(expected[:api_key])
   end
 end 

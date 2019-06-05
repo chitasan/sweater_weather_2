@@ -7,7 +7,7 @@ describe Forecast do
     expected = JSON.parse(response.body)
 
     expect(response).to be_successful
-    expect(expected['data']['type']).to eq('forecast')
+    expect(expected['data']['type']).to eq('forecasts')
     expect(expected['data']['attributes']['city']).to eq('Denver')
     expect(expected['data']['attributes']).to have_key('current_weather')
     expect(expected['data']['attributes']).to have_key('weather_hours')
@@ -22,7 +22,7 @@ describe Forecast do
     expected = JSON.parse(response.body)
 
     expect(response).to be_successful
-    expect(expected['data']['type']).to eq('forecast')
+    expect(expected['data']['type']).to eq('forecasts')
     expect(expected['data']['attributes']['city']).to eq('Chicago')
     expect(expected['data']['attributes']).to have_key('current_weather')
     expect(expected['data']['attributes']).to have_key('weather_hours')

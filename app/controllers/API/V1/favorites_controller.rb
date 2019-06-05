@@ -4,12 +4,12 @@ class Api::V1::FavoritesController < ApplicationController
   before_action :require_api_key
   
   def index
-    render json: FavoriteSerializer.new(current_user.favorites)
+    render json: FavoritesSerializer.new(current_user.favorites)
   end
   
   def create
     current_user.favorites.create(location: location)
-    render json: FavoriteSerializer.new(Favorite.last), status: :created
+    render json: FavoritesSerializer.new(Favorite.last), status: :created
   end
   
   private

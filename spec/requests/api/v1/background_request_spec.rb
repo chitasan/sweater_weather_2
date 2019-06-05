@@ -7,7 +7,7 @@ describe Background do
     expected = JSON.parse(response.body)
 
     expect(response).to be_successful
-    expect(expected['data']['type']).to eq('background')
+    expect(expected['data']['type']).to eq('backgrounds')
     expect(expected['data']['attributes']).to have_key('background_url')
   end 
 
@@ -17,7 +17,7 @@ describe Background do
     expected = JSON.parse(response.body)
 
     expect(response).to be_successful
-    expect(expected['data']['type']).to eq('background')
+    expect(expected['data']['type']).to eq('backgrounds')
     expect(expected['data']['attributes']).to have_key('background_url')
   end 
 end 

@@ -1,4 +1,4 @@
-class FavoriteSerializer
+class FavoritesSerializer
   include FastJsonapi::ObjectSerializer
   
   set_id do |object|

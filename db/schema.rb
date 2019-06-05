@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_005053) do
+ActiveRecord::Schema.define(version: 2019_06_04_155200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,31 @@ ActiveRecord::Schema.define(version: 2019_06_03_005053) do
     t.index ["hourly_weathers_id"], name: "index_locations_on_hourly_weathers_id"
   end
 
+  create_table "road_trip_forecasts", force: :cascade do |t|
+    t.string "summary"
+    t.string "current_temperature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "road_trips", force: :cascade do |t|
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "road_trip_forecasts_id"
+    t.index ["road_trip_forecasts_id"], name: "index_road_trips_on_road_trip_forecasts_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "api_key"
+  end
+
   add_foreign_key "locations", "current_weathers"
   add_foreign_key "locations", "daily_weathers", column: "daily_weathers_id"
   add_foreign_key "locations", "hourly_weathers", column: "hourly_weathers_id"
+  add_foreign_key "road_trips", "road_trip_forecasts", column: "road_trip_forecasts_id"
 end
